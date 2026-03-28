@@ -30,11 +30,152 @@
                 No gym. No equipment. Just 5 minutes.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#pricing" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition shadow-lg">
-                    Start Free Trial
+                <a href="#waitlist" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition shadow-lg">
+                    Join Waitlist - Get 50% OFF
+                </a>
+                <a href="#how-it-works" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition">
+                    See How It Works
                 </a>
             </div>
             <p class="mt-6 text-blue-200">👥 Join 1,000+ office workers</p>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="py-20 bg-blue-600 text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    🎉 Join the Waitlist - Get 50% OFF!
+                </h2>
+                <p class="text-xl text-blue-100">
+                    Be among the first 100 users and get exclusive early bird pricing
+                </p>
+            </div>
+            
+            <div class="bg-white text-gray-800 rounded-xl shadow-2xl p-8 md:p-12">
+                <form id="waitlist-form" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="your@email.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Your Main Posture Issue</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="posture_issue" value="颈前倾/脖子疼" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">Neck Pain / Text Neck</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="posture_issue" value="圆肩/肩膀内扣" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">Rounded Shoulders</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="posture_issue" value="驼背/上背部疼痛" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">Hunchback / Upper Back Pain</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="posture_issue" value="腰痛/下背部不适" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">Lower Back Pain</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="posture_issue" value="多个问题以上" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">Multiple Issues</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="posture_issue" value="其他" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">Other</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">How Much Time Can You Commit Daily?</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="time_commitment" value="5 分钟" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">5 min</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="time_commitment" value="10 分钟" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">10 min</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="time_commitment" value="15 分钟" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">15 min</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="time_commitment" value="20 分钟以上" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">20+ min</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">How Much Would You Pay Monthly?</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="price_range" value="免费" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">Free</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="price_range" value="$5-10/月" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">$5-10</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="price_range" value="$10-20/月" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">$10-20</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="price_range" value="$20-30/月" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">$20-30</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="price_range" value="$50+ 一次性购买" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">$50+ One-time</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
+                                <input type="radio" name="price_range" value="不确定" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm">Not Sure</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">How Did You Hear About Us?</label>
+                        <select name="source" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                            <option value="">Select an option</option>
+                            <option value="Twitter/X">Twitter/X</option>
+                            <option value="Reddit">Reddit</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="朋友推荐">Friend Referral</option>
+                            <option value="Google 搜索">Google Search</option>
+                            <option value="Product Hunt">Product Hunt</option>
+                            <option value="其他">Other</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition shadow-lg">
+                        🚀 Join Waitlist - Get 50% OFF
+                    </button>
+                    
+                    <p class="text-xs text-gray-500 text-center">🔒 We respect your privacy. No spam, unsubscribe anytime.</p>
+                </form>
+                
+                <div id="success-message" class="hidden text-center py-12">
+                    <div class="text-6xl mb-4">🎉</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">You're on the list!</h3>
+                    <p class="text-gray-600 mb-6">Thank you for joining DeskFix. We'll notify you when we launch with your exclusive 50% discount.</p>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-blue-800">📧 Keep an eye on your inbox for updates!<br>📱 Follow us on Twitter for daily posture tips</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center text-blue-200">
+                <p>👥 Join 1,000+ office workers on the waitlist</p>
+            </div>
         </div>
     </section>
 
@@ -306,6 +447,53 @@
             <p class="text-sm">Made with ❤️ for office workers worldwide</p>
         </div>
     </footer>
+
+    <!-- Waitlist Form Script -->
+    <script>
+    document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = {
+            email: formData.get('email'),
+            posture_issue: formData.get('posture_issue'),
+            time_commitment: formData.get('time_commitment'),
+            price_range: formData.get('price_range'),
+            source: formData.get('source')
+        };
+        
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = '⏳ Submitting...';
+        submitBtn.disabled = true;
+        
+        try {
+            const response = await fetch('http://localhost:8086/api/waitlist', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok && result.success) {
+                document.getElementById('waitlist-form').classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+            } else if (response.status === 409) {
+                alert('This email is already on the waitlist!');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            } else {
+                throw new Error(result.error || 'Submission failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Thanks for your interest! Waitlist system is ready. Please try again or contact us directly.');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+    </script>
 
 </body>
 </html>
