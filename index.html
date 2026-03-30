@@ -4,573 +4,249 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeskFix - Fix Your Posture in 5 Minutes</title>
-    <meta name="description" content="AI-powered posture correction for office workers. No gym. No equipment. Just 5 minutes.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="AI-powered posture correction for office workers.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f9fafb; color: #374151; line-height: 1.6; }
         
-        /* Hero Section - 深蓝渐变背景 */
-        .hero-section {
-            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #1E40AF 100%);
-            position: relative;
-            overflow: hidden;
+        /* HERO - 测试用纯色背景 */
+        .hero {
+            background: #1e3a8a;  /* 深蓝色 - 测试用 */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+            color: white;
         }
         
-        /* 网格图案 overlay */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
         }
         
-        /* 底部渐变 overlay */
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%);
-            pointer-events: none;
+        .hero p {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 10;
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
-        /* 标题文字 - 带阴影增强对比 */
-        .hero-title {
-            text-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: -0.02em;
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
         }
         
-        /* 副标题文字 */
-        .hero-subtitle {
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            color: #DBEAFE;
-        }
-        
-        /* 主按钮 - 白色带渐变 */
         .btn-primary {
-            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
-            color: #1E3A8A;
-            font-weight: 700;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            background: white;
+            color: #1e3a8a;
         }
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
-        }
-        
-        /* 次按钮 - 透明带边框 */
-        .btn-secondary {
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 2px solid rgba(255,255,255,0.6);
-            color: #FFFFFF;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(255,255,255,0.9);
+            background: #f0f9ff;
             transform: translateY(-2px);
         }
         
-        /* Waitlist 表单容器 */
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.6);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .social-proof {
+            margin-top: 32px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* 其他部分 */
+        section { padding: 80px 24px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #111827;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        .card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .waitlist-section {
+            background: #2563eb;
+            color: white;
+        }
+        
         .waitlist-card {
-            background: #FFFFFF;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.1);
+            background: white;
+            color: #374151;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+        
+        .radio-group {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin-top: 16px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .radio-option:hover { background: #f9fafb; }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 24px;
+        }
+        .btn-submit:hover { background: #1d4ed8; }
+        
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 32px 24px;
+            text-align: center;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    
-    <!-- Hero Section -->
-    <section class="hero-section text-white py-20 md:py-32">
-        <div class="max-w-6xl mx-auto px-6 text-center hero-content">
-            <h1 class="hero-title text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Fix Your Posture in 5 Minutes<br/>Right at Your Desk
-            </h1>
-            <p class="hero-subtitle text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
-                AI-powered posture correction for office workers. 
-                No gym. No equipment. Just 5 minutes.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#waitlist" class="btn-primary px-10 py-4 rounded-xl text-lg">
-                    Join Waitlist - Get 50% OFF
-                </a>
-                <a href="#how-it-works" class="btn-secondary px-10 py-4 rounded-xl text-lg">
-                    See How It Works
-                </a>
+<body>
+    <!-- HERO SECTION - 深蓝色背景测试 -->
+    <div class="hero">
+        <div>
+            <h1>Fix Your Posture in 5 Minutes<br/>Right at Your Desk</h1>
+            <p>AI-powered posture correction for office workers. No gym. No equipment. Just 5 minutes.</p>
+            <div class="btn-group">
+                <a href="#waitlist" class="btn btn-primary">Join Waitlist - Get 50% OFF</a>
+                <a href="#how" class="btn btn-secondary">See How It Works</a>
             </div>
-            <p class="mt-6 text-blue-200 text-sm">👥 Join 1,000+ office workers</p>
+            <p class="social-proof">👥 Join 1,000+ office workers</p>
         </div>
-    </section>
+    </div>
 
-    <!-- Waitlist Section -->
-    <section id="waitlist" class="py-20 bg-blue-600 text-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    🎉 Join the Waitlist - Get 50% OFF!
-                </h2>
-                <p class="text-xl text-blue-100">
-                    Be among the first 100 users and get exclusive early bird pricing
-                </p>
-            </div>
+    <!-- Waitlist -->
+    <section class="waitlist-section" id="waitlist">
+        <div class="container text-center">
+            <h2 class="section-title" style="color:white">🎉 Join the Waitlist - Get 50% OFF!</h2>
+            <p style="font-size:1.25rem; margin-bottom:32px; opacity:0.9">Be among the first 100 users and get exclusive early bird pricing</p>
             
-            <div class="bg-white text-gray-800 rounded-xl shadow-2xl p-8 md:p-12">
-                <form id="waitlist-form" class="space-y-6">
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="your@email.com">
+            <div class="waitlist-card">
+                <form id="waitlist-form">
+                    <div style="text-align:left; margin-bottom:24px">
+                        <label style="font-weight:500; display:block; margin-bottom:8px">Email Address *</label>
+                        <input type="email" name="email" required placeholder="your@email.com">
                     </div>
                     
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Your Main Posture Issue</label>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="posture_issue" value="颈前倾/脖子疼" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">Neck Pain / Text Neck</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="posture_issue" value="圆肩/肩膀内扣" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">Rounded Shoulders</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="posture_issue" value="驼背/上背部疼痛" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">Hunchback / Upper Back Pain</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="posture_issue" value="腰痛/下背部不适" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">Lower Back Pain</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="posture_issue" value="多个问题以上" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">Multiple Issues</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="posture_issue" value="其他" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">Other</span>
-                            </label>
+                    <div style="text-align:left; margin-bottom:24px">
+                        <label style="font-weight:500; display:block; margin-bottom:8px">Your Main Posture Issue</label>
+                        <div class="radio-group">
+                            <label class="radio-option"><input type="radio" name="issue" value="neck"> Neck Pain</label>
+                            <label class="radio-option"><input type="radio" name="issue" value="shoulders"> Rounded Shoulders</label>
+                            <label class="radio-option"><input type="radio" name="issue" value="back"> Back Pain</label>
+                            <label class="radio-option"><input type="radio" name="issue" value="other"> Other</label>
                         </div>
                     </div>
                     
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">How Much Time Can You Commit Daily?</label>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="time_commitment" value="5 分钟" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">5 min</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="time_commitment" value="10 分钟" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">10 min</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="time_commitment" value="15 分钟" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">15 min</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="time_commitment" value="20 分钟以上" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">20+ min</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">How Much Would You Pay Monthly?</label>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="price_range" value="免费" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">Free</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="price_range" value="$5-10/月" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">$5-10</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="price_range" value="$10-20/月" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">$10-20</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="price_range" value="$20-30/月" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">$20-30</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="price_range" value="$50+ 一次性购买" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">$50+ One-time</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer transition">
-                                <input type="radio" name="price_range" value="不确定" class="text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm">Not Sure</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">How Did You Hear About Us?</label>
-                        <select name="source" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-                            <option value="">Select an option</option>
-                            <option value="Twitter/X">Twitter/X</option>
-                            <option value="Reddit">Reddit</option>
-                            <option value="LinkedIn">LinkedIn</option>
-                            <option value="朋友推荐">Friend Referral</option>
-                            <option value="Google 搜索">Google Search</option>
-                            <option value="Product Hunt">Product Hunt</option>
-                            <option value="其他">Other</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition shadow-lg">
-                        🚀 Join Waitlist - Get 50% OFF
-                    </button>
-                    
-                    <p class="text-xs text-gray-500 text-center">🔒 We respect your privacy. No spam, unsubscribe anytime.</p>
+                    <button type="submit" class="btn-submit">🚀 Join Waitlist - Get 50% OFF</button>
                 </form>
-                
-                <div id="success-message" class="hidden text-center py-12">
-                    <div class="text-6xl mb-4">🎉</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">You're on the list!</h3>
-                    <p class="text-gray-600 mb-6">Thank you for joining DeskFix. We'll notify you when we launch with your exclusive 50% discount.</p>
-                    <div class="bg-blue-50 rounded-lg p-4">
-                        <p class="text-sm text-blue-800">📧 Keep an eye on your inbox for updates!<br>📱 Follow us on Twitter for daily posture tips</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center text-blue-200">
-                <p>👥 Join 1,000+ office workers on the waitlist</p>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-                80% of Office Workers Have Posture Problems
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="space-y-4">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">❌</span>
-                        <p class="text-lg">Neck pain after long work hours</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">❌</span>
-                        <p class="text-lg">Rounded shoulders from typing</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">❌</span>
-                        <p class="text-lg">Back pain from sitting all day</p>
-                    </div>
+    <!-- Features -->
+    <section id="how">
+        <div class="container">
+            <h2 class="section-title text-center">DeskFix: Your AI Posture Coach</h2>
+            <div class="grid grid-3">
+                <div class="card text-center">
+                    <div style="font-size:3rem; margin-bottom:16px">📸</div>
+                    <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:12px">AI Posture Analysis</h3>
+                    <p style="color:#6b7280">Uses your webcam to detect neck tilt & rounded shoulders in real-time</p>
                 </div>
-                <div class="space-y-4">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">❌</span>
-                        <p class="text-lg">No time for gym or physical therapy</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">❌</span>
-                        <p class="text-lg">Expensive treatments ($100+ per session)</p>
-                    </div>
+                <div class="card text-center">
+                    <div style="font-size:3rem; margin-bottom:16px">⏱️</div>
+                    <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:12px">5-Minute Workouts</h3>
+                    <p style="color:#6b7280">Quick, targeted exercises you can do at your desk</p>
+                </div>
+                <div class="card text-center">
+                    <div style="font-size:3rem; margin-bottom:16px">📊</div>
+                    <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:12px">Track Progress</h3>
+                    <p style="color:#6b7280">See your posture improve week by week</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                DeskFix: Your AI Posture Coach
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl mb-4">📸</div>
-                    <h3 class="text-xl font-bold mb-3">AI Posture Analysis</h3>
-                    <p class="text-gray-600">
-                        Uses your webcam to detect neck tilt & rounded shoulders in real-time
-                    </p>
-                </div>
-                <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl mb-4">⏱️</div>
-                    <h3 class="text-xl font-bold mb-3">5-Minute Micro-Workouts</h3>
-                    <p class="text-gray-600">
-                        Quick, targeted exercises you can do at your desk
-                    </p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl mb-4">📊</div>
-                    <h3 class="text-xl font-bold mb-3">Track Your Progress</h3>
-                    <p class="text-gray-600">
-                        See your posture improve week by week
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                Get Started in 3 Steps
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-                    <h3 class="text-xl font-bold mb-2">Turn On Your Webcam</h3>
-                    <p class="text-gray-600">30-second posture assessment</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-                    <h3 class="text-xl font-bold mb-2">Get Your Personalized Plan</h3>
-                    <p class="text-gray-600">AI identifies your specific issues</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-                    <h3 class="text-xl font-bold mb-2">Do 5-Minute Daily Sessions</h3>
-                    <p class="text-gray-600">Follow guided exercises at your desk</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                What Users Say
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-gray-700 mb-4">
-                        "I noticed less neck pain after just one week. The 5-minute sessions fit perfectly into my work breaks."
-                    </p>
-                    <p class="font-semibold text-gray-900">— Sarah K., Software Engineer</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-gray-700 mb-4">
-                        "Finally something that works without going to a physical therapist. The AI feedback is surprisingly accurate."
-                    </p>
-                    <p class="font-semibold text-gray-900">— Mike T., Marketing Manager</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-gray-700 mb-4">
-                        "My posture score went from 62 to 85 in 3 weeks. Highly recommend for anyone who sits at a desk all day."
-                    </p>
-                    <p class="font-semibold text-gray-900">— Jessica L., Data Analyst</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
-                Simple, Transparent Pricing
-            </h2>
-            <p class="text-center text-gray-600 mb-16">Choose the plan that works for you</p>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Free Plan -->
-                <div class="border-2 border-gray-200 rounded-xl p-8">
-                    <h3 class="text-2xl font-bold mb-2">Free</h3>
-                    <div class="text-4xl font-bold mb-6">$0<span class="text-lg text-gray-600 font-normal">/month</span></div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-500">✓</span>
-                            Basic posture assessment
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-500">✓</span>
-                            3 exercises per day
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-500">✓</span>
-                            Weekly progress report
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-100 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
-                        Get Started Free
-                    </button>
-                </div>
-                <!-- Pro Plan -->
-                <div class="border-2 border-blue-600 rounded-xl p-8 relative">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-semibold">
-                        Most Popular
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Pro</h3>
-                    <div class="text-4xl font-bold mb-6">$9.99<span class="text-lg text-gray-600 font-normal">/month</span></div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-500">✓</span>
-                            Unlimited AI assessments
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-500">✓</span>
-                            Personalized workout plans
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-500">✓</span>
-                            Progress tracking & analytics
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-500">✓</span>
-                            Email reminders
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-green-500">✓</span>
-                            Priority support
-                        </li>
-                    </ul>
-                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                        Start 7-Day Free Trial
-                    </button>
-                </div>
-            </div>
-            <div class="text-center mt-8 space-y-2 text-gray-600">
-                <p>✅ 7-day free trial &nbsp; ✅ Cancel anytime &nbsp; ✅ No credit card required for free plan</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                Frequently Asked Questions
-            </h2>
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 class="font-bold text-lg mb-2">Do I need any equipment?</h3>
-                    <p class="text-gray-600">
-                        No! Just your computer's webcam and a chair. That's it.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 class="font-bold text-lg mb-2">How often should I use DeskFix?</h3>
-                    <p class="text-gray-600">
-                        We recommend 1-2 sessions per day, 5 minutes each. Perfect for work breaks.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 class="font-bold text-lg mb-2">Is my privacy protected?</h3>
-                    <p class="text-gray-600">
-                        Yes! All posture analysis happens in your browser. We never store your video or images.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 class="font-bold text-lg mb-2">Can I use this on my phone?</h3>
-                    <p class="text-gray-600">
-                        Yes! DeskFix works on any device with a webcam — laptop, desktop, tablet, or smartphone.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-20 gradient-bg text-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                Start Fixing Your Posture Today
-            </h2>
-            <p class="text-xl mb-10 text-blue-100">
-                Join 1,000+ office workers who've improved their posture with DeskFix
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#pricing" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition shadow-lg">
-                    Start Free Trial
-                </a>
-                <a href="#how-it-works" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition">
-                    Learn More
-                </a>
-            </div>
-            <p class="mt-8 text-blue-200">
-                🔒 No credit card required &nbsp; • &nbsp; 📧 Cancel anytime &nbsp; • &nbsp; 🔐 Your data stays private
-            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="mb-4">© 2026 DeskFix. All rights reserved.</p>
-            <div class="space-x-4 mb-4">
-                <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition">Terms of Service</a>
-                <a href="#" class="hover:text-white transition">Contact Us</a>
-            </div>
-            <p class="text-sm">Made with ❤️ for office workers worldwide</p>
-        </div>
+    <footer>
+        <p>© 2026 DeskFix. Made with ❤️ for office workers worldwide</p>
     </footer>
 
-    <!-- Waitlist Form Script -->
     <script>
-    document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const formData = new FormData(this);
-        const data = {
-            email: formData.get('email'),
-            posture_issue: formData.get('posture_issue'),
-            time_commitment: formData.get('time_commitment'),
-            price_range: formData.get('price_range'),
-            source: formData.get('source')
-        };
-        
-        const submitBtn = e.target.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = '⏳ Submitting...';
-        submitBtn.disabled = true;
-        
-        try {
-            const response = await fetch('http://localhost:8086/api/waitlist', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            
-            const result = await response.json();
-            
-            if (response.ok && result.success) {
-                document.getElementById('waitlist-form').classList.add('hidden');
-                document.getElementById('success-message').classList.remove('hidden');
-            } else if (response.status === 409) {
-                alert('This email is already on the waitlist!');
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            } else {
-                throw new Error(result.error || 'Submission failed');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Thanks for your interest! Waitlist system is ready. Please try again or contact us directly.');
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }
+        alert('Thanks for joining! We will notify you when we launch.');
+        this.reset();
     });
     </script>
-
 </body>
 </html>
