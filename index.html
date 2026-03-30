@@ -11,73 +11,110 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { 
-            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #1E40AF 100%);
+        
+        /* Hero Section - 深蓝渐变背景 */
+        .hero-section {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #1E40AF 100%);
             position: relative;
             overflow: hidden;
         }
-        .gradient-bg::before {
+        
+        /* 网格图案 overlay */
+        .hero-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.85) 50%, rgba(30, 64, 175, 0.95) 100%);
-            z-index: 1;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
         }
-        .hero-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            position: relative;
+        
+        /* 底部渐变 overlay */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%);
+            pointer-events: none;
         }
+        
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 10;
         }
-        .text-shadow {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        
+        /* 标题文字 - 带阴影增强对比 */
+        .hero-title {
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
         }
+        
+        /* 副标题文字 */
+        .hero-subtitle {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            color: #DBEAFE;
+        }
+        
+        /* 主按钮 - 白色带渐变 */
         .btn-primary {
-            background: linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 100%);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+            color: #1E3A8A;
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
         }
         .btn-primary:hover {
-            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
         }
+        
+        /* 次按钮 - 透明带边框 */
         .btn-secondary {
-            backdrop-filter: blur(8px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255,255,255,0.6);
+            color: #FFFFFF;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 1);
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.9);
+            transform: translateY(-2px);
+        }
+        
+        /* Waitlist 表单容器 */
+        .waitlist-card {
+            background: #FFFFFF;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     
     <!-- Hero Section -->
-    <section class="gradient-bg hero-pattern text-white py-20 md:py-32">
+    <section class="hero-section text-white py-20 md:py-32">
         <div class="max-w-6xl mx-auto px-6 text-center hero-content">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight text-shadow">
+            <h1 class="hero-title text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 Fix Your Posture in 5 Minutes<br/>Right at Your Desk
             </h1>
-            <p class="text-xl md:text-2xl mb-10 text-blue-50 max-w-3xl mx-auto text-shadow">
+            <p class="hero-subtitle text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
                 AI-powered posture correction for office workers. 
                 No gym. No equipment. Just 5 minutes.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#waitlist" class="btn-primary text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition">
+                <a href="#waitlist" class="btn-primary px-10 py-4 rounded-xl text-lg">
                     Join Waitlist - Get 50% OFF
                 </a>
-                <a href="#how-it-works" class="btn-secondary text-white px-8 py-4 rounded-lg font-semibold text-lg transition">
+                <a href="#how-it-works" class="btn-secondary px-10 py-4 rounded-xl text-lg">
                     See How It Works
                 </a>
             </div>
-            <p class="mt-6 text-blue-100">👥 Join 1,000+ office workers</p>
+            <p class="mt-6 text-blue-200 text-sm">👥 Join 1,000+ office workers</p>
         </div>
     </section>
 
